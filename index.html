@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="manifest" href="manifest.json" />
+    <meta name="theme-color" content="#333" />
+    <title>Railley Dogo Gen.</title>
+ 
+</head>
+<body>
+    
+        <div class="container">
+            
+            <img src="" alt="" id="yes" >
+            <button class="button-29" role="button" onclick="show()">Randomized Dog Photo</button>
+            <h2 class="">Status:</h2>
+            <p  id="no" style="color: red;"></p>
+        </div>
+    
+
+    
+    
+
+
+
+
+    <script>
+        show();
+    function show() {
+        fetch ("https://dog.ceo/api/breeds/image/random")
+        .then(x => x.json())
+        .then((y)=>{
+        document.getElementById("yes").src = y.message;
+        document.getElementById("no").innerHTML = y.status;
+        })
+    }
+
+    if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+   navigator.serviceWorker.register('../sw.js').then( () => {
+    console.log('Service Worker Registered')
+   })
+ })
+}
+    </script>
+
+</body>
+</html>
